@@ -40,6 +40,21 @@ public class Maze {
     System.out.println("\033[2J\033[1;1H");
   }
 
+  private int solve(int r, int c){
+    if(maze[r][c] != '#' && maze[r][c] != '.' && maze[r][c] != '@') {
+
+    }
+    
+    if(animate){
+        clearTerminal();
+        System.out.println(this);
+        wait(20);
+    }
+
+    return -1;
+  }
+
+
   public String toString(){
     String out = "";
     for(int r = 0; r < maze.length;r++) {
@@ -51,8 +66,9 @@ public class Maze {
       }
     }
     return out;
-
   }
+
+
 
 
 
