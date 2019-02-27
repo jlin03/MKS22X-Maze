@@ -32,8 +32,18 @@ public class Maze {
     }
   }
 
+  public void setAnimate(boolean a) {
+    animate = a;
+  }
+
+  public void clearTerminal(){
+    System.out.println("\033[2J\033[1;1H");
+  }
 
   
+
+
+
 
 
 
