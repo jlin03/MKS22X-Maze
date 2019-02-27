@@ -40,7 +40,19 @@ public class Maze {
     System.out.println("\033[2J\033[1;1H");
   }
 
-  
+  public String toString(){
+    String out = "";
+    for(int r = 0; r < maze.length;r++) {
+      for(int c = 0; c < maze[r].length;c++) {
+        out += maze[r][c];
+      }
+      if(r < maze.length - 1) {
+        out += "\n";
+      }
+    }
+    return out;
+
+  }
 
 
 
