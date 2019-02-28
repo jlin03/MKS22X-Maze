@@ -5,6 +5,7 @@ public class Maze {
 
   private char[][]maze;
   private boolean animate;
+  private int[][] moves = {{1,0},{-1,0},{0,1},{0,-1}};
 
   public Maze(String filename) throws FileNotFoundException{
     animate = false;
@@ -40,11 +41,20 @@ public class Maze {
     System.out.println("\033[2J\033[1;1H");
   }
 
-  private int solve(int r, int c){
-    if(maze[r][c] != '#' && maze[r][c] != '.' && maze[r][c] != '@') {
 
+
+  private int solveH(int r, int c, int move){
+    if(maze[r][c] == 'E') {
+      return move;
     }
-    
+    if(maze[r][c] != '#' && maze[r][c] != '.' && maze[r][c] != '@') {
+      maze[r][c] == '@';
+      for(int i = 0; i < 4; i++) {
+        solveH(r+moves[i][0],c+moves[i][1],move+1);
+      }
+      maze[r][c] == '.';
+    }
+
     if(animate){
         clearTerminal();
         System.out.println(this);
