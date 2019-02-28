@@ -38,10 +38,22 @@ public class Maze {
   }
 
   public void clearTerminal(){
-    System.out.println("\033[2J\033[1;1H");
+    System.out.println("\033for(int r = 0; r < lines.size();r++) {
+      for(int c = 0; c < lines.get(r).length();c++) {[2J\033[1;1H");
   }
 
-
+  public int solve() {
+    int[] pos = new int[1][2];
+    for(int r = 0; r < lines.size();r++) {
+      for(int c = 0; c < lines.get(r).length();c++) {
+        if(maze[r][c] == 'S') {
+          pos[0][0] = r;
+          pos[0][1] = c;
+        }
+      }
+    }
+    return solveH(pos[0][0],pos[0][1],0);
+  }
 
   private int solveH(int r, int c, int move){
     if(maze[r][c] == 'E') {
